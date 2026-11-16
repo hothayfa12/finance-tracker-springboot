@@ -2,6 +2,7 @@
 package com.financetracker.controller;
 
 import com.financetracker.model.User;
+import com.financetracker.service.TransactionService;
 import com.financetracker.service.UserService;
 
 import org.springframework.security.core.Authentication;
@@ -13,9 +14,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class DashboardController {
 
     private final UserService userService;
+    private final TransactionService transactionService;
 
-    public DashboardController(UserService userService) {
+    public DashboardController(
+            UserService userService,
+            TransactionService transactionService) {
+
         this.userService = userService;
+        this.transactionService = transactionService;
     }
 
     @GetMapping("/")
@@ -31,9 +37,11 @@ public class DashboardController {
         User user = userService.getUserByEmail(
                 authentication.getName());
 
+        TransactionService.FinancialSummary summary =
+                transactionService.getFinancialSummary(user.getId());
+
         model.addAttribute("firstName", user.getFirstName());
-        model.addAttribute("fullName",
-                user.getFirstName() + " " + user.getLastName());
+        model.addAttribute("summary", summary);
 
         return "dashboard";
     }
