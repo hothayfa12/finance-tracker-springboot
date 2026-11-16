@@ -64,6 +64,3 @@ Browser → Spring Boot → Spring Data JPA → MySQL
 Docker Compose runs the application and database as
 separate containers on the same internal network.
 
-## GitHub Repository
-
-https://github.com/hothayfa12/finance-tracker-springboot
