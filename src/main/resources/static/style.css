@@ -1,0 +1,79 @@
+
+:root {
+    --primary-color: #2563eb;
+    --background-color: #f5f7fb;
+    --text-color: #1e293b;
+}
+
+body {
+    background-color: var(--background-color) !important;
+    color: var(--text-color);
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.navbar {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.navbar-brand {
+    letter-spacing: -0.4px;
+}
+
+.nav-link {
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary-color) !important;
+}
+
+.card {
+    border-radius: 16px;
+    transition: box-shadow 0.2s ease;
+}
+
+.card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06) !important;
+}
+
+.btn {
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.form-control,
+.form-select {
+    border-radius: 8px;
+    padding: 0.65rem 0.8rem;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.12);
+}
+
+.table thead th {
+    color: #64748b;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.table td,
+.table th {
+    padding: 0.9rem;
+}
+
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+@media (max-width: 768px) {
+    .container.py-5 {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+}
