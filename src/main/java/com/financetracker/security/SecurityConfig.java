@@ -18,17 +18,22 @@ public class SecurityConfig {
                         .requestMatchers(
                                 "/login",
                                 "/register",
+                                "/error",
                                 "/css/**",
                                 "/js/**",
                                 "/images/**",
                                 "/webjars/**"
                         ).permitAll()
-
                         .anyRequest().authenticated()
                 )
 
                 .formLogin(form -> form
+                        .loginPage("/login")
+                        .loginProcessingUrl("/login")
+                        .usernameParameter("email")
+                        .passwordParameter("password")
                         .defaultSuccessUrl("/dashboard", true)
+                        .failureUrl("/login?error")
                         .permitAll()
                 )
 
